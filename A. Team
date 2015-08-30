@@ -1,0 +1,19 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int main()
+{
+  int n,cnt,p,v,t;
+  while(cin>>n)
+  {
+    cnt=0;
+    while(n--)
+    {
+      cin>>p>>v>>t;
+      if(p+v==2||p+t==2||v+t==2)
+        cnt++;
+    }
+    cout<<cnt<<endl;
+  }
+  return 0;
+}
