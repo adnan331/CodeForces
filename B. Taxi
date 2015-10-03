@@ -1,0 +1,119 @@
+#include<iostream>
+#include<cstdio>
+#include<deque>
+#include<algorithm>
+using namespace std;
+int main()
+{
+    int n,i,m[100000];
+    deque<int>sdq;//sorted dequeue
+    while(cin>>n)
+    {
+        int cnt=0;
+        for(i=0;i<n;i++)
+        {
+            cin>>m[i];
+        }
+        sort(m,m+n);
+        for(i=0;i<n;i++)
+        {
+            if(m[i]==4)
+            {
+                cnt++;
+                continue;
+            }
+            sdq.push_back(m[i]);
+
+        }
+
+        while(!(sdq.empty()))
+        {
+            if(sdq.back()==3)
+            {
+                if(sdq.front()==1)
+                {
+                    cnt++;
+                    sdq.pop_back();
+                    if(sdq.empty())
+                        break;
+                    sdq.pop_front();
+                    if(sdq.empty())
+                        break;
+
+                }
+                else
+                {
+                    cnt++;
+                    sdq.pop_back();
+                    if(sdq.empty())
+                        break;
+                }
+            }
+            else if(sdq.back()==2)
+             {
+                cnt++;
+                if(sdq.front()==2)
+                {
+                    sdq.pop_front();
+                    if(sdq.empty())
+                        break;
+                     sdq.pop_back();
+                    if(sdq.empty())
+                        break;
+
+
+                }
+                else if(sdq.front()==1)
+                {
+                    sdq.pop_back();
+                    if(sdq.empty())
+                        break;
+
+                    sdq.pop_front();
+                    if(sdq.empty())
+                        break;
+                    if(sdq.front()==1)
+                    {
+
+                        sdq.pop_front();
+                        if(sdq.empty())
+                        break;
+
+                    }
+
+
+                }
+             }
+            else if(sdq.back()==1)
+            {
+                cnt++;
+                sdq.pop_back();
+                if(sdq.empty())
+                        break;
+                if(sdq.front()==1)
+                    sdq.pop_front();
+                    if(sdq.empty())
+                        break;
+                if(sdq.front()==1)
+                    sdq.pop_front();
+                    if(sdq.empty())
+                        break;
+                if(sdq.front()==1)
+                    sdq.pop_front();
+                    if(sdq.empty())
+                        break;
+
+            }
+        }
+
+             cout<<cnt<<endl;
+
+      }
+
+
+        return 0;
+
+
+
+}
+
