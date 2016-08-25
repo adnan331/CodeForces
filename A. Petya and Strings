@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+int main(){
+
+    string a,b;
+    while(cin>>a>>b){
+
+        int l = a.length(),l1,l2,t=0;
+        for(int i=0; i<l; i++){
+
+            l1=tolower(a[i])-'a';
+            l2=tolower(b[i])-'a';
+            if(l1>l2)
+            {
+               cout<<"1\n";
+               t=1;
+               break;
+
+            }
+            else if(l1<l2)
+            {
+
+                cout<<"-1\n";
+                t=-1;
+                break;
+            }
+            else{
+
+                continue;
+
+            }
+
+
+        }
+        if(t==0)
+        cout<<"0\n";
+
+
+    }
+
+
+}
